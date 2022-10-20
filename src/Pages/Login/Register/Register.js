@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { getAuth } from "firebase/auth";
 
+const auth = getAuth();
 const Register = () => {
-    const {createUser}=useContext(AuthContext)
+    const {createUser,profile}=useContext(AuthContext)
 
     const handleSubmit=(e)=>{
         e.preventDefault()
@@ -19,10 +21,20 @@ const Register = () => {
         .then(result=>{
             const user=result.user
             console.log(user);
+
+            profile(name,photoURL)
+              .then(() => {
+                // Profile updated!
+                // ...
+              })
+              .catch(error=>console.error(error.message))
+
             form.reset()
+
             
         })
         .catch(error=>console.error(error.message))
+        
     }
 
 
