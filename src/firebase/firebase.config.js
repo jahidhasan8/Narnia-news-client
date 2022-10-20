@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCaI2hZxjlBJmQZWsRgOMwlNr3CIpNhzUo",
-  authDomain: "narnia-news.firebaseapp.com",
-  projectId: "narnia-news",
-  storageBucket: "narnia-news.appspot.com",
-  messagingSenderId: "466133666669",
-  appId: "1:466133666669:web:16ca4beae6897e01446864"
+  apiKey:process.env.REACT_APP_apiKey ,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
